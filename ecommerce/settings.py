@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -128,12 +129,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-STATICFILES_DIRS=[STATIC_DIR,]
+#STATICFILES_DIRS=[STATIC_DIR,]
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
+#************************
+# settings/base.py
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
+#**********
 
 
 LOGIN_REDIRECT_URL='/afterlogin'
@@ -143,8 +153,8 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'owinohvicky@gmail.com' # this email will be used to send emails
-EMAIL_HOST_PASSWORD = '34599069' # host email password required
+EMAIL_HOST_USER = 'labelle@gmail.com' # this email will be used to send emails
+EMAIL_HOST_PASSWORD = '3459788069' # host email password required
 # now sign in with your host gmail account in your browser
 # open following link and turn it ON
 # https://myaccount.google.com/lesssecureapps
